@@ -1,0 +1,9 @@
+version: '3'
+services:
+  emacs:
+    build: .
+    volumes:
+      - /:/volumes  # 映射当前目录到容器的 /workspace 目录
+      - ./emacs.d:/root/.emacs.d  # 映射当前目录到容器的 /workspace 目录
+    command: emacs --daemon  # 启动 Emacs 以守护进程模式运行
+    tty: true  # 保持容器运行，即使没有交互式命令运行
